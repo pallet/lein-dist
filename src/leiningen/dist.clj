@@ -4,6 +4,8 @@
    [clojure.java.shell :only [sh]]
    [clojure.pprint :only [pprint]]
    [leiningen.core.project :only [unmerge-profiles]])
+  (:require
+   [clojure.string :as string])
   (:import
    [org.apache.tools.tar TarOutputStream TarEntry]
    [java.io File FileOutputStream ByteArrayOutputStream]))
@@ -63,9 +65,12 @@
         url (as-url
              (format
               "https://raw.github.com/technomancy/leiningen/%s/bin/lein"
-              (if (.endsWith lein-version "SNAPSHOT") "preview" lein-version)))]
+              (if (.endsWith lein-version "SNAPSHOT") "preview" lein-version)))
+        lein (file output-dir "lein")]
     (with-open [rdr (reader url)]
-      (copy rdr (file output-dir "lein")))
+      (copy rdr lein))
+    (let [script (slurp lein)]
+      (spit lein (string/replace script "$HOME/.lein" "./.lein")))
     (let [{:keys [exit out err]} (sh "chmod" "755" "lein"  :dir output-dir)]
       (when-not (zero? exit)
         (binding [*out* *err*]
