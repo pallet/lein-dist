@@ -13,8 +13,17 @@ Creates `myproject-version.tar` in the `target` directory.
 
 ## Install
 
-Add `[lein-dist "0.1.0-SNAPSHOT"]` to the `:plugins` vector of your `:user`
+Add `[lein-dist "0.1.0"]` to the `:plugins` vector of your `:user`
 profile, or your `project.clj`.
+
+## Details
+
+The plugin will create a version of the project that uses a project-local maven
+repo using `:local-repo "local-m2"`, resolves all the dependencies into that
+repository and then sets `:offline? true`.
+
+The plugin also packages a version of `lein`, that uses `./.lein` as it's
+configuration directory (`LEIN_HOME`).
 
 ## License
 
