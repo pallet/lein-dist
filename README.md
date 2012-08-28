@@ -13,7 +13,7 @@ Creates `myproject-version.tar` in the `target` directory.
 
 ## Install
 
-Add `[lein-dist "0.1.0-SNAPSHOT"]` to the `:plugins` vector of your `:user`
+Add `[lein-dist "0.1.0"]` to the `:plugins` vector of your `:user`
 profile, or your `project.clj`.
 
 ## Details
