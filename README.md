@@ -13,7 +13,7 @@ Creates `myproject-version.tar` in the `target` directory.
 
 ## Install
 
-Add `[lein-dist "0.1.0"]` to the `:plugins` vector of your `:user`
+Add `[lein-dist "0.1.1"]` to the `:plugins` vector of your `:user`
 profile, or your `project.clj`.
 
 ## Details
@@ -27,7 +27,7 @@ configuration directory (`LEIN_HOME`).
 
 ## License
 
-Copyright © 2012 Hugo Duncan.
+Copyright © 2012, 2013 Hugo Duncan.
 
 Distributed under the
 [Eclipse Public License](http://www.eclipse.org/legal/epl-v10.html).
